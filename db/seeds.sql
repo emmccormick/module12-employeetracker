@@ -1,11 +1,11 @@
-use employee_db
+use employee_db;
 
 INSERT INTO department
     (name)
 VALUES
     ('Exec Ops'),
     ('Marketing'),
-    ('Finance'),
+    ('Finance');
     
 
 INSERT INTO role
@@ -16,7 +16,7 @@ VALUES
     ('Marketing Director', 80000, 2),
     ('Internal Communications', 65000, 2),
     ('Payroll Specialist', 45000, 3),
-    ('Accounts Payable Specialist', 44000, 3),
+    ('Accounts Payable Specialist', 44000, 3);
 
 
 INSERT INTO employee
@@ -29,4 +29,4 @@ VALUES
     ('Malia', 'Brown', 4, 3),
     ('Sarah', 'Johnson', 5, NULL),
     ('Tim', 'Allen', 5, NULL),
-    ('Andrew', 'McDonald', 6, NULL),
+    ('Andrew', 'McDonald', 6, NULL);

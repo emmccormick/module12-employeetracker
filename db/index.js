@@ -13,27 +13,7 @@ class employeeDB {
         );
     }
 
-    // Add an employee
-    addEmployee(employee) {
-        return this.connection.promise().query("INSERT INTO employee SET ?", employee);
-    }
 
-    // Update the given employee's role
-    updateEmployeeRole(employeeId, roleId) {
-        return this.connection.promise().query(
-            "UPDATE employee SET role_id = ? WHERE id = ?",
-            [roleId, employeeId]
-        );
-    }
-
-
-    // Show all managers
-    allManagers(employeeId) {
-        return this.connection.promise().query(
-            "SELECT id, first_name, last_name FROM employee WHERE id != ?",
-            employeeId
-        );
-    }
 
     // Show all roles
     allRoles() {
@@ -47,18 +27,9 @@ class employeeDB {
         return this.connection.promise().query("INSERT INTO role SET ?", role);
     }
 
-    // Show all departments
-    allDepartments() {
-        return this.connection.promise().query(
-            "SELECT department.id, department.name FROM department;"
-        );
-    }
 
-    // Add a department
-    addDepartment(department) {
-        return this.connection.promise().query("INSERT INTO department SET ?", department);
-    }
 
 }
 
+console.log(new employeeDB(connection))
 module.exports = new employeeDB(connection);

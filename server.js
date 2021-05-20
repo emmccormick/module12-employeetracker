@@ -1,8 +1,9 @@
 require('dotenv').config()
 const inquirer = require("inquirer");
+//const { addRole } = require('./db/index');
 const db = require("./db");
 require("console.table");
-
+const connection = require('./db/database')
 
 
 
@@ -117,24 +118,48 @@ function viewAllDepartments() {
 
 // Add a role
 function createRole() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "title",
+            message: "What is the new role title?",
+        },
+        {
+            // look up number type
+            type: "number", 
+            name: "salary",
+            message: "What is the new role salary?",
+        },
+        {
+            type: "number",
+            name: "department_id",
+            message: "What is the department's ID?",
+        }
+
+    ])
+    .then(answers => {
+        // connection.promise().query("INSERT INTO role SET ?", answers).then(() => runQuestions());
+        db.addRole(answers).then(() => runQuestions());
+    })
+    
 }
     
 
 
 // Add a department
-function createDepartment() {
+// function createDepartment() {
 
-}
+// }
 
-// Add an employee
-function createEmployee() {
+// // Add an employee
+// function createEmployee() {
 
-}
+// }
   
 
-// Update an employee's role
-function updateEmployeeRole() {
+// // Update an employee's role
+// function updateEmployeeRole() {
 
-}
+// }
 
-
+runQuestions();
